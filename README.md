@@ -1,11 +1,8 @@
-## Welcome to GitHub Pages
+## Canvas animation
 
-You can use the [editor on GitHub](https://github.com/rpaltayev/js-canvas/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Implemented from scratch for my portfolio landing page, and more efficient in CPU power consumption compared to many others that use ready to use libraries. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## [Check out here](https://rpaltayev.github.io/js-canvas/)
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 
