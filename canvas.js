@@ -72,7 +72,6 @@ window.addEventListener("mousemove", function(event) {
         && event.target.classList[0] !== "portf-btn") {
         init(event.x, event.y, 40);
         init(event.x + random(5, 10), event.y+random(5, 10), 40);
-        init(event.x + random(5, 15), event.y+random(5, 15), 35);
     }
 });
 
@@ -90,17 +89,11 @@ const COLORS = [
   '#FFF8E1', '#FFECB3', '#FFE082', '#FFD54F', '#FFCA28', '#CC3B58', '#C93A29', '#FF3932', '#ED2938', '#C03A4C' // Amber 50->900
 ];
 
-let key = 0;
-
-function updateKey() {
-    key++;
-    key = key % 3000;
-}
 
 function init(x, y, maxRadius) {
     let circle, theta, force;
 
-    circle = new Circle(x, y, random(10, maxRadius));
+    circle = new Circle(x, y, random(12, maxRadius));
     circle.wander = random(0.5, 2.0);
     circle.drag = random(0.9, 0.99);
     theta = random(2 * Math.PI);
@@ -108,19 +101,18 @@ function init(x, y, maxRadius) {
     circle.vx = Math.sin(theta) * force;
     circle.vy = Math.cos(theta) * force;
     circle.color = random(COLORS);
-    circles[key] = circle;
-    updateKey();
+    circles.push(circle);
 }
-
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
-    for (let k in circles) {
-        if (!circles[k].alive) {
-            delete circles[k];
-        } else {
-            circles[k].move();
-        }
+    let temp = [];
+    for(let i = 0; i<circles.length; i++){
+        if(circles[i].alive) temp.push(circles[i]);
+    }
+    circles = temp;
+    for(let i = circles.length-1; i >= 0;i--) {
+        circles[i].move();
     }
 }
 
