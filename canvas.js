@@ -64,15 +64,8 @@ class Circle {
 }
 
 window.addEventListener("mousemove", function(event) {
-    console.log(event.target.classList[0])
-    if (event.target.classList[0] !== "fab"
-        && event.target.id !== "social"
-        && event.target.classList[0] !== "buttons-ul"
-        && event.target.classList[0] !== "resume-li"
-        && event.target.classList[0] !== "portf-btn") {
         init(event.x, event.y, 40);
         init(event.x + random(5, 10), event.y+random(5, 10), 40);
-    }
 });
 
 window.addEventListener("resize", function() {
@@ -80,7 +73,7 @@ window.addEventListener("resize", function() {
     canvas.height = window.innerHeight;
 });
 
-const circles = {};
+let circles = [];
 
 // const COLORS = ["#004B8D", "#0074D9", "#4192D9", "#7ABAF2", "#D40D12", "#FF1D23"];
 
@@ -103,6 +96,7 @@ function init(x, y, maxRadius) {
     circle.color = random(COLORS);
     circles.push(circle);
 }
+
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
